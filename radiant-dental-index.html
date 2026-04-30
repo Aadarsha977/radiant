@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiant Dental | World-Class Dental Excellence</title>
+    <meta name="description" content="Experience premium dental care at Radiant Dental. Award-winning cosmetic dentistry, implants, and family care in a luxurious setting.">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts with fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical inline styles for instant render -->
+    <style>
+        :root {
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Minimal calm palette (matches radiant-dental-styles.css) */
+            --color-bg: #0c0f0d;
+            --color-text: #f5f7f6;
+            --color-gold: #a3c9b7;
+        }
+        body { 
+            margin: 0; 
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--color-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.35s, visibility 0.35s;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .preloader-logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-gold);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
+    
+    <link rel="stylesheet" href="radiant-dental-styles.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">Radiant Dental</div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">Radiant</span>
+                <span class="logo-accent">Dental</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <a href="#contact" class="nav-cta">Book Consultation</a>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <div class="hero-gradient"></div>
+                <canvas class="hero-shader" id="hero-shader" aria-hidden="true"></canvas>
+                <div class="hero-particles" id="particles"></div>
+            </div>
+            
+            <div class="hero-content container">
+                <div class="hero-badge reveal-up">
+                    <span class="badge-icon">★</span>
+                    <span>Beverly Hills' Premier Dental Practice</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line reveal-up">Where Art Meets</span>
+                    <span class="title-line title-accent reveal-up">Dental Excellence</span>
+                </h1>
+                
+                <p class="hero-subtitle reveal-up">
+                    Experience world-class cosmetic and restorative dentistry in an environment 
+                    designed for your comfort. Your perfect smile awaits.
+                </p>
+                
+                <div class="hero-actions reveal-up">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Schedule Consultation</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#services" class="btn btn-outline">
+                        <span>Explore Services</span>
+                    </a>
+                </div>
+                
+                <div class="hero-stats reveal-up">
+                    <div class="stat">
+                        <span class="stat-number" data-count="25">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="15000">0</span>
+                        <span class="stat-label">Happy Patients</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-label">Awards Won</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="scroll-indicator"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <span class="section-tag reveal-up">About Us</span>
+                        <h2 class="section-title reveal-up">
+                            Redefining <span class="text-gold">Dental Care</span> Standards
+                        </h2>
+                        <p class="about-text reveal-up">
+                            At Radiant Dental, we believe exceptional dentistry is an art form. 
+                            Our state-of-the-art facility combines cutting-edge technology with 
+                            timeless elegance to create an unparalleled patient experience.
+                        </p>
+                        <p class="about-text reveal-up">
+                            Every treatment is personalized, every detail considered, and every 
+                            smile crafted to perfection. Welcome to a new era of dental excellence.
+                        </p>
+                        
+                        <div class="about-features">
+                            <div class="feature reveal-up">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Board Certified</h4>
+                                    <p>Expert team with advanced certifications</p>
+                                </div>
+                            </div>
+                            <div class="feature reveal-up">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Latest Technology</h4>
+                                    <p>Digital imaging and laser dentistry</p>
+                                </div>
+                            </div>
+                            <div class="feature reveal-up">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Patient Focused</h4>
+                                    <p>Comfort and care in every visit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-visual reveal-up">
+                        <div class="about-image-wrapper">
+                            <div class="about-image">
+                                <div class="image-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                                        <path d="M21 15l-5-5L5 21"/>
+                                    </svg>
+                                    <span>Premium Clinic Interior</span>
+                                </div>
+                            </div>
+                            <div class="about-accent"></div>
+                        </div>
+                        <div class="about-badge">
+                            <span class="badge-number">25+</span>
+                            <span class="badge-text">Years of Excellence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">Our Services</span>
+                    <h2 class="section-title reveal-up">
+                        Comprehensive <span class="text-gold">Dental Solutions</span>
+                    </h2>
+                    <p class="section-subtitle reveal-up">
+                        From routine care to complete smile transformations, we offer a full 
+                        spectrum of premium dental services tailored to your needs.
+                    </p>
+                </div>
+                
+                <div class="services-grid">
+                    <article class="service-card reveal-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M24 4c-8 0-14 8-14 16 0 10 8 24 14 24s14-14 14-24c0-8-6-16-14-16z"/>
+                                <path d="M18 20c0 0 2-4 6-4s6 4 6 4"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Cosmetic Dentistry</h3>
+                        <p class="service-desc">
+                            Transform your smile with veneers, whitening, and complete smile makeovers 
+                            designed by our award-winning cosmetic specialists.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card reveal-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="24" cy="24" r="20"/>
+                                <path d="M24 14v10l6 6"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Dental Implants</h3>
+                        <p class="service-desc">
+                            Restore missing teeth with permanent, natural-looking implants using 
+                            the latest 3D-guided surgical techniques.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card reveal-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M8 24h32M24 8v32"/>
+                                <rect x="14" y="14" width="20" height="20" rx="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Invisalign®</h3>
+                        <p class="service-desc">
+                            Achieve perfectly aligned teeth with clear, comfortable aligners. 
+                            Diamond+ provider with thousands of successful cases.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card reveal-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="24" cy="24" r="10"/>
+                                <path d="M24 4v6M24 38v6M4 24h6M38 24h6"/>
+                                <path d="M10 10l4 4M34 34l4 4M10 38l4-4M34 14l4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Teeth Whitening</h3>
+                        <p class="service-desc">
+                            Professional-grade whitening treatments that deliver dramatic results 
+                            in just one visit. Up to 8 shades brighter.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card reveal-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M24 4L6 14v20l18 10 18-10V14L24 4z"/>
+                                <path d="M24 24v20M6 14l18 10 18-10"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Porcelain Veneers</h3>
+                        <p class="service-desc">
+                            Custom-crafted veneers that perfect your smile's shape, color, and 
+                            alignment with stunning, long-lasting results.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card reveal-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 24c0-8 6-16 12-16s12 8 12 16-6 16-12 16-12-8-12-16z"/>
+                                <path d="M20 24h8M24 20v8"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Family Dentistry</h3>
+                        <p class="service-desc">
+                            Comprehensive care for every member of your family, from children's 
+                            first visits to senior dental health.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team section" id="team">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">Our Team</span>
+                    <h2 class="section-title reveal-up">
+                        Meet Our <span class="text-gold">Expert Doctors</span>
+                    </h2>
+                    <p class="section-subtitle reveal-up">
+                        Our distinguished team brings together decades of expertise, advanced 
+                        training, and a shared passion for creating beautiful smiles.
+                    </p>
+                </div>
+                
+                <div class="team-grid">
+                    <article class="team-card reveal-up">
+                        <div class="team-image">
+                            <div class="image-placeholder portrait">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="12" cy="8" r="4"/>
+                                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+                                </svg>
+                            </div>
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#" aria-label="LinkedIn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Dr. Alexander Chen</h3>
+                            <span class="team-role">Founder & Lead Cosmetic Dentist</span>
+                            <p class="team-bio">
+                                Harvard-trained with 20+ years of experience in cosmetic and 
+                                restorative dentistry. Pioneer in digital smile design.
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="team-card reveal-up">
+                        <div class="team-image">
+                            <div class="image-placeholder portrait">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="12" cy="8" r="4"/>
+                                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+                                </svg>
+                            </div>
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#" aria-label="LinkedIn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Dr. Sarah Mitchell</h3>
+                            <span class="team-role">Implant Specialist</span>
+                            <p class="team-bio">
+                                Board-certified periodontist specializing in implant placement 
+                                and bone grafting. Fellow of the American Academy of Implant Dentistry.
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="team-card reveal-up">
+                        <div class="team-image">
+                            <div class="image-placeholder portrait">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="12" cy="8" r="4"/>
+                                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+                                </svg>
+                            </div>
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#" aria-label="LinkedIn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Dr. Michael Torres</h3>
+                            <span class="team-role">Orthodontist & Invisalign Expert</span>
+                            <p class="team-bio">
+                                Diamond+ Invisalign provider with expertise in complex cases. 
+                                Passionate about creating confident smiles for patients of all ages.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">Testimonials</span>
+                    <h2 class="section-title reveal-up">
+                        What Our <span class="text-gold">Patients Say</span>
+                    </h2>
+                    <p class="section-subtitle reveal-up">
+                        Don't just take our word for it. Hear from the thousands of patients 
+                        who have transformed their smiles with us.
+                    </p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <article class="testimonial-card reveal-up">
+                        <div class="testimonial-rating">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "Dr. Chen and his team transformed my smile completely. The attention to 
+                            detail and level of care exceeded all my expectations. I finally feel 
+                            confident showing my teeth!"
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JM</div>
+                            <div class="author-info">
+                                <span class="author-name">Jennifer Morrison</span>
+                                <span class="author-treatment">Porcelain Veneers</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card reveal-up">
+                        <div class="testimonial-rating">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "After years of being afraid of dentists, I finally found a practice 
+                            that makes me feel at ease. The spa-like atmosphere and gentle approach 
+                            changed everything for me."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RK</div>
+                            <div class="author-info">
+                                <span class="author-name">Robert Kim</span>
+                                <span class="author-treatment">Complete Restoration</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card reveal-up">
+                        <div class="testimonial-rating">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "My Invisalign journey was seamless from start to finish. Dr. Torres 
+                            explained everything clearly and the results exceeded my expectations. 
+                            Worth every penny!"
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EW</div>
+                            <div class="author-info">
+                                <span class="author-name">Emily Watson</span>
+                                <span class="author-treatment">Invisalign Treatment</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <span class="section-tag reveal-up">Get in Touch</span>
+                        <h2 class="section-title reveal-up">
+                            Begin Your <span class="text-gold">Smile Journey</span>
+                        </h2>
+                        <p class="contact-text reveal-up">
+                            Ready to transform your smile? Schedule a consultation with our 
+                            expert team and take the first step toward the confident smile you deserve.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item reveal-up">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text-group">
+                                    <span class="contact-label">Visit Us</span>
+                                    <span class="contact-value">9400 Wilshire Blvd, Suite 500<br>Beverly Hills, CA 90212</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item reveal-up">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text-group">
+                                    <span class="contact-label">Call Us</span>
+                                    <a href="tel:+13105550199" class="contact-value">(310) 555-0199</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item reveal-up">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text-group">
+                                    <span class="contact-label">Email Us</span>
+                                    <a href="mailto:hello@radiantdental.com" class="contact-value">hello@radiantdental.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item reveal-up">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text-group">
+                                    <span class="contact-label">Hours</span>
+                                    <span class="contact-value">Mon - Fri: 8AM - 6PM<br>Sat: 9AM - 3PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrapper reveal-up">
+                        <form class="contact-form" id="contact-form">
+                            <h3 class="form-title">Request an Appointment</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Service of Interest</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="cosmetic">Cosmetic Dentistry</option>
+                                    <option value="implants">Dental Implants</option>
+                                    <option value="invisalign">Invisalign</option>
+                                    <option value="whitening">Teeth Whitening</option>
+                                    <option value="veneers">Porcelain Veneers</option>
+                                    <option value="family">Family Dentistry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your dental goals..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Request Appointment</span>
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                            
+                            <p class="form-note">
+                                By submitting, you agree to our privacy policy. We'll contact you within 24 hours.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Map Placeholder -->
+                <div class="map-wrapper reveal-up">
+                    <div class="map-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span>Interactive Map</span>
+                        <p>9400 Wilshire Blvd, Beverly Hills</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-text">Radiant</span>
+                        <span class="logo-accent">Dental</span>
+                    </a>
+                    <p class="footer-desc">
+                        Where art meets dental excellence. Creating beautiful, confident smiles 
+                        in Beverly Hills since 1998.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Cosmetic Dentistry</a></li>
+                        <li><a href="#services">Dental Implants</a></li>
+                        <li><a href="#services">Invisalign</a></li>
+                        <li><a href="#services">Teeth Whitening</a></li>
+                        <li><a href="#services">Porcelain Veneers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p>9400 Wilshire Blvd, Suite 500<br>Beverly Hills, CA 90212</p>
+                        <p><a href="tel:+13105550199">(310) 555-0199</a></p>
+                        <p><a href="mailto:hello@radiantdental.com">hello@radiantdental.com</a></p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Radiant Dental. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts at end for better performance -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
+    <script src="radiant-dental-script.js"></script>
+</body>
+</html>
